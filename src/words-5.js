@@ -1,4 +1,4 @@
-var words5 = {
+var words5 = [
 "aaaaa",
 "aaaag",
 "aaaah",
@@ -54907,5 +54907,5 @@ var words5 = {
 "zylox",
 "zyman",
 "zzzzz"
-}
+]
 
