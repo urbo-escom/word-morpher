@@ -4,11 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Encadenamiento de palabras</title>
 	<meta name="description" content="">
-	<!--<link rel="stylesheet" href="css/style.css">-->
+	<link rel="stylesheet" href="style/style.css">
 
+	<script src="lib/viz.js" charset="utf-8"></script>
+
+	<!-- Lista de palabras -->
 	<script src="src/words-4.js" charset="utf-8"></script>
 	<script src="src/words-5.js" charset="utf-8"></script>
+	<!-- Utilería -->
+	<script src="src/dictionary.js" charset="utf-8"></script>
+	<script src="src/path.js" charset="utf-8"></script>
+	<!-- Algoritmo -->
 	<script src="src/word-morpher.js" charset="utf-8"></script>
+	<script src="src/main.js" charset="utf-8"></script>
 <!-- IE6-8 support of HTML5 elements --> <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -27,12 +35,37 @@
 		</nav>
 	</header>
 	<section>
-		<h2>Palabras de 4 letras</h2>
-		<form onSubmit="alert('to')">
-			Palabra inicial: <input type="text" id="inicial-4"/>
-			Palabra final: <input type="text" id="inicial-4"/>
-			<input type="submit" value="Encadenar"/>
+		<h2>Encadenar</h2>
+		<form onSubmit="chain_words();">
+		<p>
+			<label for="from">Inicio</label>
+			<input type="text" name="from" id="from"/>
+		</p>
+		<p>
+			<label for="to">Fin</label>
+			<input type="text" name="to" id="to"/>
+		</p>
+		<p>
+			<label for="search">Tipo de b&uacute;squeda</label>
+			<select name="search" id="search">
+				<option value="stack">Profundidad</option>
+				<option value="queue">Anchura</option>
+			</select>
+		</p>
+
+		<p>
+			<input type="button"
+			       name="submit" value="Encadenar"
+			       id="submitbutton" onclick="chain_words();"/>
+		</p>
 		</form>
+		<h2 id="info">Nada</h2>
+		<h3>Texto</h3>
+		<pre id="word-text"></pre>
+		<h3>Dot</h3>
+		<pre id="word-dot"></pre>
+		<h3>SVG</h3>
+		<div id="word-svg"></div>
 	</section>
 	<footer>
 	<div class="footer_navigation">
