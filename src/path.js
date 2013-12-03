@@ -14,10 +14,10 @@ var GraphBuilder = {
 	asDot: function(config, path) {
 		var str = "";
 
-		str += "graph "+config.from+"_"+config.to+" {\n";
+		str += "graph \""+config.from+"_"+config.to+"\" {\n";
 		for(var word = config.from; path[word] != undefined;
 		    word = path[word])
-			str += "\t"+word+" -- "+path[word]+"\n";
+			str += "\t\""+word+"\" -- \""+path[word]+"\"\n";
 		str += "}\n";
 		return str;
 	},
