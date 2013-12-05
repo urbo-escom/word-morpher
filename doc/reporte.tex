@@ -30,7 +30,7 @@
   breaklines=true,
   breakatwhitespace=true,
   tabsize=3,
-  literate={á}{{\'a}}1 {ñ}{{\~n}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1,
+  literate={μ}{{$\mu$ }}1 {²}{{\textsuperscript{2}}}1 {σ}{{$\sigma$}}1 {á}{{\'a}}1 {ñ}{{\~n}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1,
 }
 
 \lstdefinelanguage{JavaScript}{
@@ -82,6 +82,10 @@ de palabras que cumplen:
 Se va a trató cada palabra como un nodo y la lista de palabras se
 obtuvieron de diccionarios de palabras.
 
+Se implementó en JavaScript + HTML, y se recomienda usar la última
+versión de Chrome o Firefox usando la consola presionando
+Ctrl+Mayus+J y Ctr+Mayus+K respectivamente.
+
 \paragraph{Algoritmos}
 Solo se implementaron los algoritmos de búsqueda en profundidad y
 búsqueda en amplitud.
@@ -124,6 +128,14 @@ que los vecinos de los nodos vecinos.
 \lstinputlisting[language=JavaScript]{../src/dictionary.js}
 
 \section{Resultado}
+
+\paragraph{Búsqueda en profundidad}
+Con las palabras jump y drum ejecutadas 30 veces se obtuvo
+una $\mu = 2.624s$ y $\sigma^2 = 0.159s$
+
+\paragraph{Búsqueda en amplitud}
+Con las palabras jump y drum ejecutadas 30 veces se obtuvo
+una $\mu = 7.049s$ y $\sigma^2 = 1.478s$
 
 \end{document}
 
