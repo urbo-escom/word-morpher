@@ -1,5 +1,6 @@
 var Dictionary = {
 
+	// Se pueden encadenar?
 	areChainable: function(w1, w2) {
 		var l1 = w1.length;
 		var l2 = w2.length;

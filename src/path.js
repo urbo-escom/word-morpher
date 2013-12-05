@@ -1,5 +1,6 @@
 var GraphBuilder = {
 
+	// Obtener como texto simple
 	asText: function(config, path) {
 		var str = "";
 
@@ -11,6 +12,7 @@ var GraphBuilder = {
 		return str;
 	},
 
+	// Obtener como lenguaje Dot
 	asDot: function(config, path) {
 		var str = "";
 

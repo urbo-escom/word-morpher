@@ -32,4 +32,3 @@ function word_morpher(morpher, config) {
 		GraphBuilder.asSVG(config, path);
 }
 
-

@@ -1,0 +1,130 @@
+\documentclass[40pt,a4paper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{courier}
+
+%\usepackage[monochrome]{color}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{orange}{rgb}{0.8,0.3,0}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  literate={á}{{\'a}}1 {ñ}{{\~n}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1,
+}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, try, document, getElementById, innerHTML},
+  keywordstyle=\color{orange}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{gray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{red}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\begin{document}
+
+\title{
+Análisis de Algoritmos\\
+{\small Mario Augusto Ramirez Morales\\}
+Proyecto\\
+}
+\author{
+Grupo 3CV5\\ \\
+Equipo\\ \\
+Díaz Urbina Eduardo 2012630487\\
+}
+\date{4 de Diciembre 2013}
+\maketitle
+
+\section{Objetivo}
+
+Obtener el recorrido entre dos palabras implementando los algoritmos
+vistos en clase.
+
+Se entendiende por recorrido entre dos palabras la lista ordenada
+de palabras que cumplen:
+
+\begin{itemize}
+	\item Primer y último elemento son dichas dos palabras
+	\item Dado cualquier elemento excepto el último, el elemento
+	      siguiente difiere de él en una letra solamente
+\end{itemize}
+
+\section{Introducción}
+
+Se va a trató cada palabra como un nodo y la lista de palabras se
+obtuvieron de diccionarios de palabras.
+
+\paragraph{Algoritmos}
+Solo se implementaron los algoritmos de búsqueda en profundidad y
+búsqueda en amplitud.
+
+\paragraph{Búsqueda en profundidad}
+Es un algoritmo que recorre los nodos de un grafo de manera que
+expande la búsqueda lo más posible dentro del grafo, generalmente
+no encuentra rutas cortas y es implementado con ayuda de una estructura
+de pila.
+
+El uso de la estructura de pila se debe a que los nodos que va encontrando
+al último deben tener prioridad sobre los otros si es que se quiere explorar
+en profundidad.
+
+\paragraph{Búsqueda en amplitud}
+Es un algoritmo que recorre los nodos de un grafo de manera más jerárquica,
+esto es, que explora secuencialmente todos los nodos que están a una misma
+distancia del nodo inicial, después de pasar a distancias más grandes. El
+algoritmo encuentra la ruta más corta debido a esto.
+
+Para lograr esto, es usual programar una cola, ya que los nodos vecinos
+a un nodo se encuentran primero, por lo que deben tener mayor prioridad
+que los vecinos de los nodos vecinos.
+
+\section{Código}
+
+\paragraph{Página}
+\lstinputlisting[language=HTML]{../main.html}
+
+\paragraph{Principal src/main.js}
+\lstinputlisting[language=JavaScript]{../src/main.js}
+
+\paragraph{Algoritmo src/word-morpher.js}
+\lstinputlisting[language=JavaScript]{../src/word-morpher.js}
+
+\paragraph{El que imprime la gráfica src/path.js}
+\lstinputlisting[language=JavaScript]{../src/path.js}
+
+\paragraph{El que hace las comparaciones src/dictionary.js}
+\lstinputlisting[language=JavaScript]{../src/dictionary.js}
+
+\section{Resultado}
+
+\end{document}
+
+

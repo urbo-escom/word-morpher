@@ -12,6 +12,7 @@ var WordMorpher = function(_words) {
 
 	var words = _words;
 
+	// Algoritmos
 	var predecessors = function(from, to) {
 		var predecessor = [];
 		var process = [];
@@ -19,17 +20,20 @@ var WordMorpher = function(_words) {
 		var found = false;
 
 		var k = -1, stop = 500;
+		// Función prototipo add debe estar especificada
 		process.add(from);
 		predecessor[from] = -1;
 		while (process.length > 0 && !found) {
+			// Función prototipo remove debe ser especificada
 			var node = process.remove();
 
-			k++;
+			k++; // Cada tantos nodos imprime
 			if (k%stop == 0) {
 				console.log.debug("Node "+words[node]);
 				console.log.debug("-Iter:"+k);
 			}
 
+			// Obtén solo 
 			var chainable_words = words.filter(function(e, i) {
 				if (predecessor[i] == undefined &&
 				    canChain(words[node], words[i])) {
@@ -54,6 +58,7 @@ var WordMorpher = function(_words) {
 		return predecessor;
 	};
 
+	// Obtener el camino
 	var buildPath = function(from, to, predecessor) {
 		var path = {};
 
@@ -67,15 +72,17 @@ var WordMorpher = function(_words) {
 		return path;
 	}
 
+	// Excepción
 	var unkown_word = function(w) {
 		return "Palabra '"+w+"' no en diccionario";
 	}
 
 	return {
 
+		// Método público
 		getPath: function(config) {
-			var w1 = config.from;
-			var w2 = config.to;
+			var w1 = config.from; // Origen
+			var w2 = config.to; // Destino
 			var indices = Dictionary.indexOf(words, w1, w2);
 
 			var from = indices[0];
@@ -88,10 +95,10 @@ var WordMorpher = function(_words) {
 			console.log.info("Index of "+w1+":"+from);
 			console.log.info("Index of "+w2+":"+to);
 
-			if (config.search == "stack")
+			if (config.search == "stack") // Profundidad
 				Array.prototype.remove =
 					Array.prototype.pop;
-			else if (config.search == "queue")
+			else if (config.search == "queue") // Amplitud
 				Array.prototype.remove =
 					Array.prototype.shift;
 
