@@ -3,7 +3,7 @@ console.log.info = function() {
 }
 
 console.log.debug = function() {
-	console.log("[DEBUG] "+arguments[0]);
+	//console.log("[DEBUG] "+arguments[0]);
 }
 
 Array.prototype.add = Array.prototype.push;
@@ -19,7 +19,7 @@ var WordMorpher = function(_words) {
 		var canChain = Dictionary.areChainable;
 		var found = false;
 
-		var k = -1, stop = 500;
+		var k = -1, stop = 5000;
 		// Función prototipo add debe estar especificada
 		process.add(from);
 		predecessor[from] = -1;
@@ -92,8 +92,8 @@ var WordMorpher = function(_words) {
 			if (to == undefined)
 				throw unkown_word(w2);
 
-			console.log.info("Index of "+w1+":"+from);
-			console.log.info("Index of "+w2+":"+to);
+			console.log.debug("Index of "+w1+":"+from);
+			console.log.debug("Index of "+w2+":"+to);
 
 			if (config.search == "stack") // Profundidad
 				Array.prototype.remove =

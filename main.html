@@ -17,33 +17,38 @@
 	<!-- Algoritmo -->
 	<script src="src/word-morpher.js" charset="utf-8"></script>
 	<script src="src/main.js" charset="utf-8"></script>
+
 <!-- IE6-8 support of HTML5 elements --> <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 	</head>
-<body>
+<body style='font-family: "Andale Mono", AndaleMono, monospace;width:600px;margin:auto;'>
 <div id="wrapper">
-	<header>
+	<header style="width:68%;margin:auto;%">
 		<hgroup>
 		<h1>Encadenamiento de palabras</h1>
 		</hgroup>
-		<nav>
+		<nav style="position:fixed;left:0;width:16%;top:0;">
 		<ul>
-			<li><a href="#">Inicio</a></li>
-			<li><a href="#"></a></li>
+			<li><a href="#info">Inicio</a></li>
+			<li><a href="#text">Texto</a></li>
+			<li><a href="#dot">Dot</a></li>
+			<li><a href="#svg">SVG</a></li>
 		</ul>
 		</nav>
 	</header>
-	<section>
+	<section style="position:fixed;left:68%;width:16%;top:0">
 		<h2>Encadenar</h2>
-		<form onSubmit="chain_words();">
+		<form
+		onSubmit="setTimeout(function(){chain_words();}, 1000);">
 		<p>
-			<label for="from">Inicio</label>
-			<input type="text" name="from" id="from"/>
+			<label for="from">Origen</label>
+			<input type="text" name="from"
+			       id="from" value="done"/>
 		</p>
 		<p>
-			<label for="to">Fin</label>
-			<input type="text" name="to" id="to"/>
+			<label for="to">Destino</label>
+			<input type="text" name="to" id="to" value="jump"/>
 		</p>
 		<p>
 			<label for="search">Tipo de b&uacute;squeda</label>
@@ -52,36 +57,33 @@
 				<option value="queue">Amplitud</option>
 			</select>
 		</p>
+		<p>
+			<label for="samples">Ejecutar n veces</label>
+			<input type="number" min="0" value="5"
+			       name="samples" id="samples"/>
+		</p>
 
 		<p>
 			<input type="button"
 			       name="submit" value="Encadenar"
-			       id="submitbutton" onclick="chain_words();"/>
+		onclick="setTimeout(function(){chain_words();}, 1000);"
+			       id="submitbutton"/>
 		</p>
 		</form>
-		<h2 id="info">Nada</h2>
-		<h3>Texto</h3>
+	</section>
+	<section style="width:68%;margin:auto;">
+		<h2 style="width:150px" id="info">Nada</h2>
+		<h2 style="width:150px">Media</h2>
+			<p style="width:150px" id="mean"></p>
+		<h2 style="width:150px">Varianza</h2>
+			<p style="width:150px" id="variance"></p>
+		<h3 id="text">Texto</h3>
 		<pre id="word-text"></pre>
-		<h3>Dot</h3>
+		<h3 id="dot">Dot</h3>
 		<pre id="word-dot"></pre>
-		<h3>SVG</h3>
+		<h3 id="svg">SVG</h3>
 		<div id="word-svg"></div>
 	</section>
-	<footer>
-	<div class="footer_navigation">
-		<ul>
-			<li><a href="#">Inicio</a></li>
-			<li><a href="#"></a></li>
-		</ul>
-	</div>
-	<hgroup>
-	<h3></h3>
-	<h4></h4>
-	</hgroup>
-	<address>
-		<a href="mailto:"></a>
-	</address>
-	</footer>
 </body>
 </html>
 
