@@ -6,7 +6,19 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="style/style.css">
 
+	<!-- Librería Graphviz -->
 	<script src="lib/viz.js" charset="utf-8"></script>
+
+	<!-- Librería jQuery -->
+	<script src="lib/jquery-1.10.2.min.js" charset="utf-8"></script>
+
+	<!-- Librería jQuery UI -->
+	<script src="lib/jquery-ui-1.10.3.min.js" charset="utf-8"></script>
+	<link href="lib/jquery-ui-1.10.3.min.css" charset="utf-8"
+		rel="stylesheet" type="text/css">
+	<link href="style/style.css" charset="utf-8"
+		rel="stylesheet" type="text/css">
+	<script src="src/auto-complete.js" charset="utf-8"></script>
 
 	<!-- Lista de palabras -->
 	<script src="src/words-4.js" charset="utf-8"></script>
@@ -14,7 +26,7 @@
 	<!-- Utilería -->
 	<script src="src/dictionary.js" charset="utf-8"></script>
 	<script src="src/path.js" charset="utf-8"></script>
-	<!-- Algoritmo -->
+	<!-- Algoritmos -->
 	<script src="src/word-morpher.js" charset="utf-8"></script>
 	<script src="src/main.js" charset="utf-8"></script>
 
@@ -24,11 +36,11 @@
 	</head>
 <body style='font-family: "Andale Mono", AndaleMono, monospace;width:600px;margin:auto;'>
 <div id="wrapper">
-	<header style="width:68%;margin:auto;%">
+	<header>
 		<hgroup>
 		<h1>Encadenamiento de palabras</h1>
 		</hgroup>
-		<nav style="position:fixed;left:0;width:16%;top:0;">
+		<nav>
 		<ul>
 			<li><a href="#info">Inicio</a></li>
 			<li><a href="#text">Texto</a></li>
@@ -37,7 +49,7 @@
 		</ul>
 		</nav>
 	</header>
-	<section style="position:fixed;left:68%;width:16%;top:0">
+	<section>
 		<h2>Encadenar</h2>
 		<form
 		onSubmit="setTimeout(function(){chain_words();}, 1000);">
@@ -64,25 +76,25 @@
 		</p>
 
 		<p>
-			<input type="button"
-			       name="submit" value="Encadenar"
+			<input type="button" name="submit"
+			       id="submit" value="Encadenar"
 		onclick="setTimeout(function(){chain_words();}, 1000);"
 			       id="submitbutton"/>
 		</p>
 		</form>
 	</section>
-	<section style="width:68%;margin:auto;">
-		<h2 style="width:150px" id="info">Nada</h2>
-		<h2 style="width:150px">Media</h2>
-			<p style="width:150px" id="mean"></p>
-		<h2 style="width:150px">Varianza</h2>
-			<p style="width:150px" id="variance"></p>
+	<section>
+		<h2 id="info">Nada</h2>
+		<h2>Media</h2>
+			<p id="mean"></p>
+		<h2>Varianza</h2>
+			<p id="variance"></p>
 		<h3 id="text">Texto</h3>
-		<pre id="word-text"></pre>
+			<pre id="word-text"></pre>
 		<h3 id="dot">Dot</h3>
-		<pre id="word-dot"></pre>
+			<pre id="word-dot"></pre>
 		<h3 id="svg">SVG</h3>
-		<div id="word-svg"></div>
+			<div id="word-svg"></div>
 	</section>
 </body>
 </html>
